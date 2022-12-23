@@ -38,8 +38,6 @@ if st.button('Predict Price'):
 
     ppi = ((X_res**2) + (Y_res**2))**0.5/screen_size
     query = np.array([company,type,ram,touchscreen,ips,ppi,cpu,hdd,ssd,gpu,os])
-    # ind_rupee = np.exp(pipe.predict(query)[0])
-    # idr = ind_rupee * 188.43
 
     query = query.reshape(1,11)
     st.title("The predicted price of this specification is Rp " + str(int(np.exp(pipe.predict(query)[0])*188.43)))
